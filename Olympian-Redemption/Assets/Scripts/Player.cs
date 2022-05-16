@@ -7,22 +7,29 @@ public class Player : MonoBehaviour
 
     
 {
-    public float speed = 10;
+    public float speed = 0;
     bool jump = false;
-    private Collider2D c2d;
+    Rigidbody2D r2d;
+    float inputX, inputY;
+
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        c2d = GetComponent<Collider2D>();
+        r2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float inputX = Input.GetAxisRaw("Horizontal");
-        
 
-        Vector3 move = new Vector3(speed * inputX, 0, 0);
+        animator.SetFloat("GroundSpeed", Mathf.Abs(speed));
+
+        inputX = Input.GetAxisRaw("Horizontal");
+        inputY = Input.GetAxisRaw("Vertical");
+
+
+        /*Vector3 move = new Vector3(speed * inputX, 0, 0);
 
         move *= Time.deltaTime;
 
@@ -32,7 +39,30 @@ public class Player : MonoBehaviour
         {
             jump = true;
             Debug.Log("Jumping");
+        }*/
+
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            speed += 10;
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
         }
+
+        if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            speed = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            speed += 10;
+            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            speed = 0;
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
@@ -42,6 +72,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        jump = false;
+
+        r2d.velocity = new Vector2(speed * inputX, speed * inputY);
+        //jump = false;
     }
 }
