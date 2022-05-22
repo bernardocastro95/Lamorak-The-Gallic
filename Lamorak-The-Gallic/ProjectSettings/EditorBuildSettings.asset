@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: aafe3407a6e726a46aeb668d44f41337
   - enabled: 1
-    path: Assets/Scenes/Lion.unity
+    path: Assets/Scenes/Level1.unity
     guid: 87be6281e43732041b76f7c30dcccfb5
   m_configObjects: {}

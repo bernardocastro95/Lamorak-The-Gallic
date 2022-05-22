@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+[RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 
-    
+
 {
+
     public float speed = 0;
     Rigidbody2D r2d;
     float inputX, inputY;
-    
+
 
     public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
-        
+
     }
 
     // Update is called once per frame
@@ -25,15 +28,12 @@ public class Player : MonoBehaviour
     {
 
         animator.SetFloat("GroundSpeed", Mathf.Abs(speed));
-        animator.SetBool("isJumping", false);
 
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
 
         Movement();
         BackToMainMenu();
-        Jump();
-        
     }
 
     void FixedUpdate()
@@ -64,16 +64,7 @@ public class Player : MonoBehaviour
         {
             speed = 0;
         }
-        
-    }
 
-    void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            r2d.velocity = new Vector2(r2d.velocity.x, 10f);
-        }
-        
     }
 
     void BackToMainMenu()

@@ -3,8 +3,9 @@
 --- !u!74 &7400000
 AnimationClip:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Archer1_Jump
   serializedVersion: 6
   m_Legacy: 0
@@ -26,10 +27,8 @@ AnimationClip:
       value: {fileID: 21300000, guid: 0bec58c0b20f56f48989c1bcaee75148, type: 3}
     - time: 0.2
       value: {fileID: 21300000, guid: a49c7b9d66cc4a24386e403958b40a6c, type: 3}
-    - time: 0.26666668
-      value: {fileID: 21300000, guid: 56ffaf6c93ba0254eb7e179b74c6a4d0, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: b3da0091836809046b5d531e0b08a6c7, type: 3}
+      value: {fileID: 21300000, guid: 56ffaf6c93ba0254eb7e179b74c6a4d0, type: 3}
     - time: 0.4
       value: {fileID: 21300000, guid: a373d45e91ef75744a04a217721240b0, type: 3}
     - time: 0.46666667
@@ -68,7 +67,6 @@ AnimationClip:
     - {fileID: 21300000, guid: 0bec58c0b20f56f48989c1bcaee75148, type: 3}
     - {fileID: 21300000, guid: a49c7b9d66cc4a24386e403958b40a6c, type: 3}
     - {fileID: 21300000, guid: 56ffaf6c93ba0254eb7e179b74c6a4d0, type: 3}
-    - {fileID: 21300000, guid: b3da0091836809046b5d531e0b08a6c7, type: 3}
     - {fileID: 21300000, guid: a373d45e91ef75744a04a217721240b0, type: 3}
     - {fileID: 21300000, guid: 84ec664e127376241a7be048f2b52330, type: 3}
     - {fileID: 21300000, guid: 549be546ce572774494f2397543dd2fc, type: 3}
@@ -100,5 +98,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_GenerateMotionCurves: 0
   m_Events: []
