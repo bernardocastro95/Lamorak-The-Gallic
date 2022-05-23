@@ -232,6 +232,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: GroundSpeed
     m_EventTreshold: 0.01
+  - m_ConditionMode: 2
+    m_ConditionEvent: mouseButtonClicked
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5909634343469074242}
   m_Solo: 0

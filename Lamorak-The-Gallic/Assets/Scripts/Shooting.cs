@@ -34,12 +34,14 @@ public class Shooting : MonoBehaviour
                 circles[i].transform.position = pointingThePosition(i * 0.1f);
                 aimingBow();
             }
-            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);          
+
         }
         else if (Input.GetMouseButtonUp(0))
         {
             anim.SetBool("mouseButtonClicked", false);
             gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            shootingArrow();
             for(int i = 0; i < numberOfCircles; i++)
             {
                 Destroy(circles[i]);
@@ -52,6 +54,11 @@ public class Shooting : MonoBehaviour
     void aimingBow()
     {
         transform.right = aim;
+    }
+
+    void shootingArrow()
+    {
+        Debug.Log("Shooting Arrow");
     }
 
     Vector2 pointingThePosition(float t)
