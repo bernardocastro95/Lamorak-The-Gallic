@@ -2706,10 +2706,10 @@ GameObject:
   - component: {fileID: 2002848965}
   - component: {fileID: 2002848963}
   - component: {fileID: 2002848967}
+  - component: {fileID: 2002848969}
   - component: {fileID: 2002848966}
   - component: {fileID: 2002848968}
   - component: {fileID: 2002848964}
-  - component: {fileID: 2002848969}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2861,7 +2861,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2002848969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2875,3 +2875,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 2002848966}
+  aim: {x: 0, y: 0}
+  force: 12
+  circlePrefab: {fileID: 5135793219458722605, guid: 6b0b66fa3f811d248801c3d8e3e01e49, type: 3}
+  circles: []
+  numberOfCircles: 20
