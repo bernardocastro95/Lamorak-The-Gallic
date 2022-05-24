@@ -9,6 +9,8 @@ public class Shooting : MonoBehaviour
     public float force;
     public GameObject circlePrefab;
     public GameObject[] circles;
+    public GameObject arrow;
+    public int launch;
     public int numberOfCircles;
     // Start is called before the first frame update
     void Start()
@@ -58,7 +60,8 @@ public class Shooting : MonoBehaviour
 
     void shootingArrow()
     {
-        Debug.Log("Shooting Arrow");
+        GameObject arrowShot = Instantiate(arrow, transform.position, transform.rotation);
+        arrowShot.GetComponent<Rigidbody2D>().AddForce(transform.right * launch);
     }
 
     Vector2 pointingThePosition(float t)
