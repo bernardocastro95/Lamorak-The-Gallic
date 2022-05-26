@@ -12,6 +12,7 @@ public class Shooting : MonoBehaviour
     public GameObject arrow;
     public int launch;
     public int numberOfCircles;
+    public Transform shotPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +61,7 @@ public class Shooting : MonoBehaviour
 
     void shootingArrow()
     {
-        GameObject arrowShot = Instantiate(arrow, transform.position, transform.rotation);
+        GameObject arrowShot = Instantiate(arrow, shotPoint.position, shotPoint.rotation);
         arrowShot.GetComponent<Rigidbody2D>().AddForce(transform.right * launch);
     }
 
