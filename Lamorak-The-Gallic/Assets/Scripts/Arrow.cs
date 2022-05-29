@@ -5,6 +5,8 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     public float x;
+    Vector2 direction = Vector2.one.normalized;
+    float magnitude = .05f;
     public bool lateStart;
     Rigidbody2D r2d;
     // Start is called before the first frame update
@@ -16,15 +18,10 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(lateStart == false)
-        {
-            x = transform.localEulerAngles.z;
-            lateStart = true;
-        }
-        transform.rotation = Quaternion.Euler(0, 0, x);*/
 
-        float angle = Mathf.Atan2(r2d.velocity.y, r2d.velocity.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        //float angle = Mathf.Atan2(r2d.velocity.y, r2d.velocity.x) * Mathf.Rad2Deg;
+        //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        r2d.AddRelativeForce(direction * magnitude, ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
