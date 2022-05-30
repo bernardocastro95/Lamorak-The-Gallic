@@ -9,6 +9,7 @@ public class Arrow : MonoBehaviour
     float magnitude = .05f;
     public bool lateStart;
     Rigidbody2D r2d;
+    bool hit = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,20 +20,36 @@ public class Arrow : MonoBehaviour
     void Update()
     {
 
-        //float angle = Mathf.Atan2(r2d.velocity.y, r2d.velocity.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        r2d.AddRelativeForce(direction * magnitude, ForceMode2D.Impulse);
+        if (hit == false)
+        {
+            //r2d.AddRelativeForce(direction * magnitude, ForceMode2D.Impulse);
+            TrackMovement();
+        }
+
+        
+        
+    }
+
+    void TrackMovement()
+    {
+        Vector2 trajectory = r2d.velocity;
+
+        float angle = Mathf.Atan2(trajectory.y, trajectory.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Circle")
+        if(collision.gameObject.tag == "Target" || collision.gameObject.tag == "Ground")
         {
-            x -= 5;
+            hit = true;
+            r2d.velocity = Vector2.zero;
+            r2d.isKinematic = true;
         }
-        else if(collision.gameObject.tag == "Ground")
+        else if(collision.gameObject.tag == "InvisibleWall")
         {
-            this.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            hit = true;
+            Destroy(this);
         }
     }
 }

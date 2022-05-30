@@ -18,7 +18,7 @@ public class Shooting : MonoBehaviour
     {
         circles = new GameObject[numberOfCircles];
 
-        
+
     }
 
     // Update is called once per frame
@@ -33,11 +33,11 @@ public class Shooting : MonoBehaviour
             anim.SetBool("mouseButtonClicked", true);
             for (int i = 0; i < numberOfCircles; i++)
             {
-                circles[i] = Instantiate(circlePrefab, transform.position, Quaternion.identity);   
+                circles[i] = Instantiate(circlePrefab, transform.position, Quaternion.identity);
                 circles[i].transform.position = pointingThePosition(i * 0.1f);
                 aimingBow();
             }
-            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);          
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         }
         else if (Input.GetMouseButtonUp(0))
@@ -45,11 +45,11 @@ public class Shooting : MonoBehaviour
             anim.SetBool("mouseButtonClicked", false);
             gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
             shootingArrow();
-            for(int i = 0; i < numberOfCircles; i++)
+            for (int i = 0; i < numberOfCircles; i++)
             {
                 Destroy(circles[i]);
             }
-            
+
         }
     }
 
