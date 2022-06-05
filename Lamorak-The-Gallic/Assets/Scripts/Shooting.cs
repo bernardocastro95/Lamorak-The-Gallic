@@ -14,6 +14,8 @@ public class Shooting : MonoBehaviour
     public int numberOfCircles;
     public Transform shotPoint;
     public Transform target;
+    [SerializeField]
+    private UI ui;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,7 @@ public class Shooting : MonoBehaviour
             {
                 Destroy(circles[i]);
             }
+            ui.lifeUiManager();
 
         }
     }
