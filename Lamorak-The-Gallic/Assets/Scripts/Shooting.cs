@@ -13,11 +13,11 @@ public class Shooting : MonoBehaviour
     public int launch;
     public int numberOfCircles;
     public Transform shotPoint;
+    public Transform target;
     // Start is called before the first frame update
     void Start()
     {
         circles = new GameObject[numberOfCircles];
-
 
     }
 

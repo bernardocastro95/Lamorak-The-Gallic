@@ -22,7 +22,7 @@ public class Arrow : MonoBehaviour
 
         if (hit == false)
         {
-            //r2d.AddRelativeForce(direction * magnitude, ForceMode2D.Impulse);
+            //r2d.AddRelativeForce(direction * magnitude, ForceMode2D.Force);
             TrackMovement();
         }
 
