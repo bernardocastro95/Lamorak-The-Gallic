@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lifeText.text = "X" + 3;
+        lifeText.text = 3 + " Shots";
         lifes = 3;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
@@ -26,20 +27,55 @@ public class UI : MonoBehaviour
         {
             Debug.LogError("No Game Manager");
         }
-        gameButton.enabled = false;
+        gameButton.onClick.AddListener(resumeGame);
+        mainMenuButton.onClick.AddListener(backtoMainMenu);
+        
+    }
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.P))
+        {
+            gm.gameIsPaused();
+            pauseMenu();
+            
+        } 
     }
 
     public void lifeUiManager()
     {
         lifes -= 1;
-        lifeText.text = "X" + lifes.ToString();
+        lifeText.text = lifes.ToString() + " Shots";
 
         if(lifes == 0)
         {
             gm.gameIsOver();
             Time.timeScale = 0;
             middleText.text = "GAME OVER";
+            gameButton.gameObject.SetActive(true);
+            gameButton.GetComponentInChildren<Text>().text = "Restart";
+            mainMenuButton.gameObject.SetActive(true);
 
         }
+    }
+    void pauseMenu()
+    {   Time.timeScale = 0;
+        middleText.text = "GAME OVER";
+        gameButton.gameObject.SetActive(true);
+        gameButton.GetComponentInChildren<Text>().text = "Resume";
+        mainMenuButton.gameObject.SetActive(true);
+    }
+    void resumeGame()
+    {
+        Time.timeScale = 1;
+        middleText.text = "";
+        gameButton.gameObject.SetActive(false);
+        mainMenuButton.gameObject.SetActive(false);
+        lifeText.text = 3 + " Shots";
+        lifes = 3;
+    }
+    void backtoMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

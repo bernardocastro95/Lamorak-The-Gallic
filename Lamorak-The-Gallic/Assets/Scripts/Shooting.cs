@@ -30,33 +30,35 @@ public class Shooting : MonoBehaviour
         Vector2 playerPos = transform.position;
         aim = mousePos - playerPos;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            anim.SetBool("mouseButtonClicked", true);
-            for (int i = 0; i < numberOfCircles; i++)
+        
+        
+            if (Input.GetMouseButtonDown(0))
             {
-                circles[i] = Instantiate(circlePrefab, transform.position, Quaternion.identity);
-                circles[i].transform.position = pointingThePosition(i * 0.1f);
-                aimingBow();
-            }
-            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                anim.SetBool("mouseButtonClicked", true);
+                for (int i = 0; i < numberOfCircles; i++)
+                {
+                    circles[i] = Instantiate(circlePrefab, transform.position, Quaternion.identity);
+                    circles[i].transform.position = pointingThePosition(i * 0.1f);
+                    aimingBow();
+                }
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
 
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            anim.SetBool("mouseButtonClicked", false);
-            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-            shootingArrow();
-            for (int i = 0; i < numberOfCircles; i++)
+            }
+            else if (Input.GetMouseButtonUp(0))
             {
-                Destroy(circles[i]);
-            }
-            ui.lifeUiManager();
+                anim.SetBool("mouseButtonClicked", false);
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                shootingArrow();
+                for (int i = 0; i < numberOfCircles; i++)
+                {
+                    Destroy(circles[i]);
+                }
+                ui.lifeUiManager();
 
-        }
+            }
+         
+
     }
-
-
     void aimingBow()
     {
         transform.right = aim;

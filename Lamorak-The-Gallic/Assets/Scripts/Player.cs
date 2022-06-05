@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -13,6 +12,8 @@ public class Player : MonoBehaviour
     public float speed = 0;
     Rigidbody2D r2d;
     float inputX, inputY;
+    [SerializeField]
+    GameManager gm;
 
 
     public Animator animator;
@@ -33,7 +34,15 @@ public class Player : MonoBehaviour
         inputY = Input.GetAxisRaw("Vertical");
 
         Movement();
-        BackToMainMenu();
+
+        if(gm.paused == true || gm.isGameOver == true)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     void FixedUpdate()
@@ -65,13 +74,5 @@ public class Player : MonoBehaviour
             speed = 0;
         }
 
-    }
-
-    void BackToMainMenu()
-    {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            SceneManager.LoadScene(0);
-        }
     }
 }

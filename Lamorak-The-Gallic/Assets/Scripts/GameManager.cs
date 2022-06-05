@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    bool isGameOver = false;
+    public bool isGameOver = false;
+    public bool paused = false;
+    public bool gameRunning = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +21,16 @@ public class GameManager : MonoBehaviour
     public void gameIsOver()
     {
         isGameOver = true;
+        gameRunning = false;
+    }
+    public void gameIsPaused()
+    {
+        paused = true;
+        gameRunning = false;
+    }
+    public void gameNotPaused()
+    {
+        paused = false;
+        gameRunning = true;
     }
 }
