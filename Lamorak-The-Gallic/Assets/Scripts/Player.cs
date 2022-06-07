@@ -52,26 +52,29 @@ public class Player : MonoBehaviour
 
     void Movement()
     {
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (gm.gameRunning)
         {
-            speed += 10;
-            gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
-        }
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                speed += 10;
+                gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
+            }
 
-        if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            speed = 0;
-        }
+            if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                speed = 0;
+            }
 
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            speed += 10;
-            gameObject.transform.localScale = new Vector3(-.5f, .5f, .5f);
-        }
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                speed += 10;
+                gameObject.transform.localScale = new Vector3(-.5f, .5f, .5f);
+            }
 
-        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            speed = 0;
+            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                speed = 0;
+            }
         }
 
     }

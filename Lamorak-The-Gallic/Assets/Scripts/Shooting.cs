@@ -16,6 +16,8 @@ public class Shooting : MonoBehaviour
     public Transform target;
     [SerializeField]
     private UI ui;
+    [SerializeField]
+    GameManager gm;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +32,9 @@ public class Shooting : MonoBehaviour
         Vector2 playerPos = transform.position;
         aim = mousePos - playerPos;
 
-        
-        
+
+        if (gm.gameRunning)
+        {
             if (Input.GetMouseButtonDown(0))
             {
                 anim.SetBool("mouseButtonClicked", true);
@@ -56,6 +59,8 @@ public class Shooting : MonoBehaviour
                 ui.lifeUiManager();
 
             }
+        }
+            
          
 
     }

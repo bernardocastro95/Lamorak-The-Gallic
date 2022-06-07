@@ -28,6 +28,7 @@ public class UI : MonoBehaviour
             Debug.LogError("No Game Manager");
         }
         gameButton.onClick.AddListener(resumeGame);
+        gameButton.onClick.AddListener(restartGame);
         mainMenuButton.onClick.AddListener(backtoMainMenu);
         
     }
@@ -68,6 +69,15 @@ public class UI : MonoBehaviour
     void resumeGame()
     {
         Time.timeScale = 1;
+        middleText.text = "";
+        gameButton.gameObject.SetActive(false);
+        mainMenuButton.gameObject.SetActive(false);
+        lifeText.text = lifes.ToString();
+        lifes = 3;
+    }
+    void restartGame()
+    {
+        SceneManager.LoadScene(2);
         middleText.text = "";
         gameButton.gameObject.SetActive(false);
         mainMenuButton.gameObject.SetActive(false);
