@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Arrow : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class Arrow : MonoBehaviour
             hit = true;
             r2d.velocity = Vector2.zero;
             r2d.isKinematic = true;
+            SceneManager.LoadScene(3);
         }
         else if(collision.gameObject.tag == "InvisibleWall")
         {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4684211427595835167}
   - component: {fileID: 5014830970328953519}
   - component: {fileID: -7436034924434455802}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TrajectoryUI
   m_TagString: Circle
   m_Icon: {fileID: 0}

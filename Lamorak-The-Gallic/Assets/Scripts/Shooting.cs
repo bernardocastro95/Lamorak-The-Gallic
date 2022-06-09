@@ -71,8 +71,10 @@ public class Shooting : MonoBehaviour
 
     void shootingArrow()
     {
+        Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        Vector2 dir = (Vector2)((mousePos - transform.position));
         GameObject arrowShot = Instantiate(arrow, shotPoint.position, shotPoint.rotation);
-        arrowShot.GetComponent<Rigidbody2D>().AddForce(transform.right * launch);
+        arrowShot.GetComponent<Rigidbody2D>().velocity = dir * force;
     }
 
     Vector2 pointingThePosition(float t)
