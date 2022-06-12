@@ -61,7 +61,7 @@ public class UI : MonoBehaviour
     }
     void pauseMenu()
     {   Time.timeScale = 0;
-        middleText.text = "GAME OVER";
+        middleText.text = "GAME PAUSED";
         gameButton.gameObject.SetActive(true);
         gameButton.GetComponentInChildren<Text>().text = "Resume";
         mainMenuButton.gameObject.SetActive(true);

@@ -593,7 +593,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1084462316}
         m_TargetAssemblyTypeName: IntroButtons, Assembly-CSharp
-        m_MethodName: level1
+        m_MethodName: level2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
