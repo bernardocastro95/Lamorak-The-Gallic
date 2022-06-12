@@ -9,13 +9,15 @@ public class UI : MonoBehaviour
     [SerializeField]
     private Text lifeText;
     [SerializeField]
-    private Text middleText;
+    public Text middleText;
     [SerializeField]
     private Button gameButton;
     [SerializeField]
     private Button mainMenuButton;
     public int lifes;
     private GameManager gm;
+    [SerializeField]
+    private Arrow arrow;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,11 @@ public class UI : MonoBehaviour
             pauseMenu();
             
         } 
+    }
+
+    public void displayWinText()
+    {
+        middleText.text = "CONGRATULATIONS";
     }
 
     public void lifeUiManager()

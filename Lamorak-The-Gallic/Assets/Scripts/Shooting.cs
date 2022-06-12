@@ -7,11 +7,8 @@ public class Shooting : MonoBehaviour
     public Animator anim;
     public Vector2 aim;
     public float force;
-    public GameObject circlePrefab;
-    public GameObject[] circles;
     public GameObject arrow;
     public int launch;
-    public int numberOfCircles;
     public Transform shotPoint;
     public Transform target;
     [SerializeField]
@@ -21,7 +18,7 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        circles = new GameObject[numberOfCircles];
+        
 
     }
 
@@ -38,13 +35,7 @@ public class Shooting : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 anim.SetBool("mouseButtonClicked", true);
-                for (int i = 0; i < numberOfCircles; i++)
-                {
-                    circles[i] = Instantiate(circlePrefab, transform.position, Quaternion.identity);
-                    circles[i].transform.position = pointingThePosition(i * 0.1f);
-                    aimingBow();
-                }
-                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                aimingBow();
 
             }
             else if (Input.GetMouseButtonUp(0))
@@ -52,10 +43,6 @@ public class Shooting : MonoBehaviour
                 anim.SetBool("mouseButtonClicked", false);
                 gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 shootingArrow();
-                for (int i = 0; i < numberOfCircles; i++)
-                {
-                    Destroy(circles[i]);
-                }
                 ui.lifeUiManager();
 
             }

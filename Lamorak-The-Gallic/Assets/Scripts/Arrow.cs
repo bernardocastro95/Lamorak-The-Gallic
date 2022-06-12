@@ -10,7 +10,8 @@ public class Arrow : MonoBehaviour
     float magnitude = .05f;
     public bool lateStart;
     Rigidbody2D r2d;
-    bool hit = false;
+    public bool hit = false;
+    UI ui;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,12 +42,18 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Target" || collision.gameObject.tag == "Ground")
+        if(collision.gameObject.tag == "Target")
         {
             hit = true;
             r2d.velocity = Vector2.zero;
             r2d.isKinematic = true;
             SceneManager.LoadScene(3);
+            /*ui.displayWinText();
+            new WaitForSeconds(5f);
+            SceneManager.LoadScene(3);*/
+            
+
+            
         }
         else if(collision.gameObject.tag == "InvisibleWall")
         {
