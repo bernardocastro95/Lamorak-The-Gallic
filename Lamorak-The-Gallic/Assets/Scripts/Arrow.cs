@@ -5,13 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Arrow : MonoBehaviour
 {
-    public float x;
     Vector2 direction = Vector2.one.normalized;
-    float magnitude = .05f;
-    public bool lateStart;
     Rigidbody2D r2d;
     public bool hit = false;
-    UI ui;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +20,7 @@ public class Arrow : MonoBehaviour
 
         if (hit == false)
         {
-            //r2d.AddRelativeForce(direction * magnitude, ForceMode2D.Force);
+            
             TrackMovement();
         }
 
@@ -48,11 +44,6 @@ public class Arrow : MonoBehaviour
             r2d.velocity = Vector2.zero;
             r2d.isKinematic = true;
             SceneManager.LoadScene(3);
-            /*ui.displayWinText();
-            new WaitForSeconds(5f);
-            SceneManager.LoadScene(3);*/
-            
-
             
         }
         else if(collision.gameObject.tag == "InvisibleWall")

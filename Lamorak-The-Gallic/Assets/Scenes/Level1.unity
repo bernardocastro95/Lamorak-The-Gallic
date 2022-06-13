@@ -506,7 +506,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 45.4, y: 271.7}
-  m_SizeDelta: {x: 267.73, y: 30}
+  m_SizeDelta: {x: 550.32, y: 91.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &406643184
 MonoBehaviour:
@@ -750,7 +750,7 @@ MonoBehaviour:
   gameButton: {fileID: 53458748}
   mainMenuButton: {fileID: 1794823314}
   lifes: 0
-  arrow: {fileID: -8878648390340608515, guid: f0bf187b6b72fcf428d434b0a010c975, type: 3}
+  arrow: {fileID: 0}
 --- !u!1 &781929016
 GameObject:
   m_ObjectHideFlags: 0
@@ -3672,7 +3672,7 @@ MonoBehaviour:
   aim: {x: 0, y: 0}
   force: 12
   arrow: {fileID: 7718094287221438271, guid: f0bf187b6b72fcf428d434b0a010c975, type: 3}
-  launch: 2000
+  launch: 1000
   shotPoint: {fileID: 1367559557}
   target: {fileID: 0}
   ui: {fileID: 629113611}

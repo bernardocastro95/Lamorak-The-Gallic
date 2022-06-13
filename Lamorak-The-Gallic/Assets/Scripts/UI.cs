@@ -45,11 +45,6 @@ public class UI : MonoBehaviour
         } 
     }
 
-    public void displayWinText()
-    {
-        middleText.text = "CONGRATULATIONS";
-    }
-
     public void lifeUiManager()
     {
         lifes -= 1;
@@ -79,8 +74,7 @@ public class UI : MonoBehaviour
         middleText.text = "";
         gameButton.gameObject.SetActive(false);
         mainMenuButton.gameObject.SetActive(false);
-        lifeText.text = lifes.ToString();
-        lifes = 3;
+        lifeText.text = lifes.ToString() + " Shots";
     }
     void restartGame()
     {

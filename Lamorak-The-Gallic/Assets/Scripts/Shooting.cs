@@ -18,8 +18,8 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
 
+        ui.middleText.text = "Aim with your mouse and click to shoot. You must hit the target on it's bullseye at least once to win with 3 shots.";
     }
 
     // Update is called once per frame
@@ -32,24 +32,26 @@ public class Shooting : MonoBehaviour
 
         if (gm.gameRunning)
         {
+            
             if (Input.GetMouseButtonDown(0))
             {
+                ui.middleText.text = "";
                 anim.SetBool("mouseButtonClicked", true);
                 aimingBow();
 
             }
             else if (Input.GetMouseButtonUp(0))
             {
+                ui.middleText.text = "";
                 anim.SetBool("mouseButtonClicked", false);
                 gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 shootingArrow();
                 ui.lifeUiManager();
+                
 
             }
-        }
             
-         
-
+        }
     }
     void aimingBow()
     {
@@ -62,11 +64,6 @@ public class Shooting : MonoBehaviour
         Vector2 dir = (Vector2)((mousePos - transform.position));
         GameObject arrowShot = Instantiate(arrow, shotPoint.position, shotPoint.rotation);
         arrowShot.GetComponent<Rigidbody2D>().velocity = dir * force;
-    }
-
-    Vector2 pointingThePosition(float t)
-    {
-        Vector2 currentPointPos = (Vector2)transform.position + (aim.normalized * force * t) + .5f * Physics2D.gravity * (t * t);
-        return currentPointPos;
+        
     }
 }
