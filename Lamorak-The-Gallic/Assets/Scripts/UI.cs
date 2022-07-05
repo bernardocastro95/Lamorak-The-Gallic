@@ -67,6 +67,7 @@ public class UI : MonoBehaviour
         gameButton.gameObject.SetActive(true);
         gameButton.GetComponentInChildren<Text>().text = "Resume";
         mainMenuButton.gameObject.SetActive(true);
+
     }
     void resumeGame()
     {
