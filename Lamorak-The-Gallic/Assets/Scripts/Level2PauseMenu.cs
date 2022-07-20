@@ -43,12 +43,15 @@ public class Level2PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         middleText.text = "GAME PAUSED";
         gameButton.gameObject.SetActive(true);
-        gameButton.GetComponentInChildren<Text>().text = "Resume";
         mainMenuButton.gameObject.SetActive(true);
+        gameButton.GetComponentInChildren<Text>().text = "Resume";
+        mainMenuButton.GetComponentInChildren<Text>().text = "Main Menu";
+        
 
     }
     void resumeGame()
     {
+        gm.gameNotPaused();
         Time.timeScale = 1;
         middleText.text = "";
         gameButton.gameObject.SetActive(false);
@@ -58,4 +61,5 @@ public class Level2PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
 }

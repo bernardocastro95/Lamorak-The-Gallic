@@ -848,8 +848,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Well done. Your skills with arrows are second to none. But a knight must
-    know how to ride. You must prove you can make horses bid to your commands. '
+  m_Text: Well done. Your skills with arrows are second to none. But a knight must
+    know how to run. You must prove you are the fastest of all.
 --- !u!222 &1164410004
 CanvasRenderer:
   m_ObjectHideFlags: 0
