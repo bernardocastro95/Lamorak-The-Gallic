@@ -14,6 +14,14 @@ public class Player : MonoBehaviour
     float inputX, inputY;
     [SerializeField]
     GameManager gm;
+    [SerializeField]
+    Transform groundCheckCollider;
+    [SerializeField]
+    LayerMask ground;
+    bool isGrounded = false;
+    const float checkGroundRadius = 0.2f;
+    Vector3 respawn;
+    public GameObject fallDetector;
 
 
     public Animator animator;
@@ -21,13 +29,14 @@ public class Player : MonoBehaviour
     void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
+        respawn = transform.position;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        CheckIfOnGround();
         animator.SetFloat("GroundSpeed", Mathf.Abs(speed));
 
         inputX = Input.GetAxisRaw("Horizontal");
@@ -48,6 +57,22 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         r2d.velocity = new Vector2(speed * inputX, speed * inputY);
+    }
+
+    void CheckIfOnGround()
+    {
+        isGrounded = false;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position, checkGroundRadius);
+        if(colliders.Length > 0)
+        {
+            isGrounded = true;
+            Debug.Log("Player is on ground");
+        }
+        else
+        {
+            isGrounded = false;
+            Debug.Log("Not on ground");
+        }
     }
 
     void Movement()
@@ -77,5 +102,13 @@ public class Player : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Begin")
+        {
+            transform.position = respawn;
+        }
     }
 }

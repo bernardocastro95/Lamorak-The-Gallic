@@ -8,6 +8,8 @@ TagManager:
   - Target
   - Circle
   - InvisibleWall
+  - Floor
+  - Begin
   layers:
   - Default
   - TransparentFX
