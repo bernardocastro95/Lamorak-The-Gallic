@@ -66,12 +66,12 @@ public class Player : MonoBehaviour
         if(colliders.Length > 0)
         {
             isGrounded = true;
-            Debug.Log("Player is on ground");
+            
         }
         else
         {
             isGrounded = false;
-            Debug.Log("Not on ground");
+            
         }
     }
 

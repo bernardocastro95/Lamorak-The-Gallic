@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
@@ -8,10 +9,18 @@ public class Timer : MonoBehaviour
     public float timeLeft;
     public bool timeOn = false;
     public Text timeTxt;
+    [SerializeField]
+    Button restart, menu;
+    [SerializeField]
+    Text middleText;
+    [SerializeField]
+    GameManager gm;
     // Start is called before the first frame update
     void Start()
     {
         timeOn = true;
+        restart.onClick.AddListener(restartGame);
+        menu.onClick.AddListener(mainMenu);
     }
 
     // Update is called once per frame
@@ -26,9 +35,8 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time is up");
-                timeLeft = 0;
-                timeOn = false;
+                gm.gameIsOver();
+                gameOverScreen();
             }
         }
     }
@@ -41,5 +49,27 @@ public class Timer : MonoBehaviour
         float secs = Mathf.FloorToInt(current % 60);
 
         timeTxt.text = string.Format("{0:00} : {1:00}", mins, secs);
+    }
+
+    void gameOverScreen()
+    {
+        Time.timeScale = 0;
+        middleText.text = "GAME OVER";
+        restart.gameObject.SetActive(true);
+        restart.GetComponentInChildren<Text>().text = "Restart";
+        menu.gameObject.SetActive(true);
+        menu.GetComponentInChildren<Text>().text = "Main Menu";
+
+    }
+    void restartGame()
+    {
+        SceneManager.LoadScene(4);
+        middleText.text = "";
+        restart.gameObject.SetActive(false);
+        menu.gameObject.SetActive(false);
+    }
+    void mainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
