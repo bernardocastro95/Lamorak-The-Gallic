@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
 {
 
+    Animator anim;
     public float speed = 0;
     Rigidbody2D r2d;
     float inputX, inputY;
@@ -72,6 +73,18 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;
             
+        }
+    }
+
+    void jumping()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetBool("jumpButtonClicked", true);
+        }
+        else
+        {
+            anim.SetBool("jumpButtonClicked", false);
         }
     }
 
