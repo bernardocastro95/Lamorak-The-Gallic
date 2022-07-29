@@ -9,20 +9,15 @@ public class Player : MonoBehaviour
 
 {
 
-    Animator anim;
+
     public float speed = 0;
     Rigidbody2D r2d;
     float inputX, inputY;
     [SerializeField]
     GameManager gm;
-    [SerializeField]
-    Transform groundCheckCollider;
-    [SerializeField]
-    LayerMask ground;
-    bool isGrounded = false;
-    const float checkGroundRadius = 0.2f;
     Vector3 respawn;
     public GameObject fallDetector;
+    public float jumpForce = 80f;
 
 
     public Animator animator;
@@ -37,13 +32,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckIfOnGround();
+        
         animator.SetFloat("GroundSpeed", Mathf.Abs(speed));
 
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
 
         Movement();
+        Jumping();
 
         if(gm.paused == true || gm.isGameOver == true)
         {
@@ -60,32 +56,14 @@ public class Player : MonoBehaviour
         r2d.velocity = new Vector2(speed * inputX, speed * inputY);
     }
 
-    void CheckIfOnGround()
-    {
-        isGrounded = false;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position, checkGroundRadius);
-        if(colliders.Length > 0)
-        {
-            isGrounded = true;
-            
-        }
-        else
-        {
-            isGrounded = false;
-            
-        }
-    }
-
-    void jumping()
+    void Jumping()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            anim.SetBool("jumpButtonClicked", true);
+            animator.SetBool("jumpButtonClicked", true);
+            r2d.velocity = new Vector2(r2d.velocity.x, jumpForce);
         }
-        else
-        {
-            anim.SetBool("jumpButtonClicked", false);
-        }
+        
     }
 
     void Movement()
