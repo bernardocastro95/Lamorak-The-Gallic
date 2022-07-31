@@ -31304,7 +31304,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 30
@@ -31347,7 +31347,6 @@ MonoBehaviour:
   speed: 0
   gm: {fileID: 135187803}
   fallDetector: {fileID: 227690749}
-  jumpForce: 8
   animator: {fileID: 1617921748}
 --- !u!61 &1617921751
 BoxCollider2D:

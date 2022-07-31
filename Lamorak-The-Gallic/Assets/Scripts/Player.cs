@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
         r2d = GetComponent<Rigidbody2D>();
         respawn = transform.position;
 
+
     }
 
     // Update is called once per frame
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+
     }
 
     void FixedUpdate()
@@ -60,8 +62,14 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            r2d.velocity = Vector2.up * jumpForce;
             animator.SetBool("jumpButtonClicked", true);
-            r2d.velocity = new Vector2(r2d.velocity.x, jumpForce);
+            
+            
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            animator.SetBool("jumpButtonClicked", false);
         }
         
     }
