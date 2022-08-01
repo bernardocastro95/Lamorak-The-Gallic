@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     GameManager gm;
     Vector3 respawn;
     public GameObject fallDetector;
-    public float jumpForce = 80f;
 
 
     public Animator animator;
@@ -40,7 +39,8 @@ public class Player : MonoBehaviour
         inputY = Input.GetAxisRaw("Vertical");
 
         Movement();
-        Jumping();
+
+        
 
         if(gm.paused == true || gm.isGameOver == true)
         {
@@ -58,21 +58,7 @@ public class Player : MonoBehaviour
         r2d.velocity = new Vector2(speed * inputX, speed * inputY);
     }
 
-    void Jumping()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            r2d.velocity = Vector2.up * jumpForce;
-            animator.SetBool("jumpButtonClicked", true);
-            
-            
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            animator.SetBool("jumpButtonClicked", false);
-        }
-        
-    }
+    
 
     void Movement()
     {
