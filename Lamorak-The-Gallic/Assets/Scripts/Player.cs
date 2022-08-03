@@ -17,8 +17,7 @@ public class Player : MonoBehaviour
     GameManager gm;
     Vector3 respawn;
     public GameObject fallDetector;
-
-
+    public float jumpForce;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -39,7 +38,7 @@ public class Player : MonoBehaviour
         inputY = Input.GetAxisRaw("Vertical");
 
         Movement();
-
+        Jump();
         
 
         if(gm.paused == true || gm.isGameOver == true)
@@ -85,7 +84,23 @@ public class Player : MonoBehaviour
             {
                 speed = 0;
             }
+
         }
+
+    }
+
+    void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetBool("jumpButtonClicked", true);
+            r2d.AddForce(transform.up * jumpForce);
+        }
+        else
+        {
+            animator.SetBool("jumpButtonClicked", false);
+        }
+
 
     }
 

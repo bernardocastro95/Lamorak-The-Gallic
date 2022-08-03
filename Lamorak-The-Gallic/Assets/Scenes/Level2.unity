@@ -31233,7 +31233,6 @@ GameObject:
   - component: {fileID: 1617921748}
   - component: {fileID: 1617921746}
   - component: {fileID: 1617921749}
-  - component: {fileID: 1617921747}
   - component: {fileID: 1617921750}
   m_Layer: 0
   m_Name: Player
@@ -31293,21 +31292,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1617921747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617921745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d7529306c9a085408070feca488bbf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 5
-  animator: {fileID: 1617921748}
-  gm: {fileID: 135187803}
 --- !u!95 &1617921748
 Animator:
   serializedVersion: 3
@@ -31342,12 +31326,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 30
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1617921750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31363,6 +31347,7 @@ MonoBehaviour:
   speed: 0
   gm: {fileID: 135187803}
   fallDetector: {fileID: 227690749}
+  jumpForce: 4500
   animator: {fileID: 1617921748}
 --- !u!61 &1617921751
 BoxCollider2D:
