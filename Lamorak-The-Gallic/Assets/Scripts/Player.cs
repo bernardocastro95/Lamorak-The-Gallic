@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public GameObject fallDetector;
     public float jumpForce;
     public Animator animator;
+    Level2PauseMenu ui;
     // Start is called before the first frame update
     void Start()
     {
@@ -110,5 +111,11 @@ public class Player : MonoBehaviour
         {
             transform.position = respawn;
         }
+        if(collision.tag == "FinishFlag")
+        {
+            Debug.Log("finish");
+            ui.levelWon();
+        }
+        
     }
 }

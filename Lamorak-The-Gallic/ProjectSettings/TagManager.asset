@@ -10,6 +10,7 @@ TagManager:
   - InvisibleWall
   - Floor
   - Begin
+  - FinishFlag
   layers:
   - Default
   - TransparentFX

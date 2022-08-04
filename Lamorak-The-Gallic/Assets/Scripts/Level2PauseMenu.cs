@@ -26,7 +26,6 @@ public class Level2PauseMenu : MonoBehaviour
         }
         gameButton.onClick.AddListener(resumeGame);
         mainMenuButton.onClick.AddListener(backtoMainMenu);
-
     }
 
     void Update()
@@ -60,6 +59,12 @@ public class Level2PauseMenu : MonoBehaviour
     void backtoMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void levelWon()
+    {
+        Time.timeScale = 0;
+        middleText.text = "Well done";
     }
 
 }
