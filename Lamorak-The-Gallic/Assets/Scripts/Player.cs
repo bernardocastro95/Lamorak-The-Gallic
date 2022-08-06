@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
@@ -111,10 +111,9 @@ public class Player : MonoBehaviour
         {
             transform.position = respawn;
         }
-        if(collision.tag == "FinishFlag")
+        if(collision.gameObject.tag == "FinishFlag")
         {
-            Debug.Log("finish");
-            ui.levelWon();
+            SceneManager.LoadScene(5);
         }
         
     }
