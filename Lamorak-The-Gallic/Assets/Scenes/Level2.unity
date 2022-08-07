@@ -286,7 +286,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.6501641
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -31217,8 +31217,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 360}
-  m_SizeDelta: {x: 128, y: 30}
+  m_AnchoredPosition: {x: 85.2, y: 198.1}
+  m_SizeDelta: {x: 268.61105, y: 110.9579}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1617921745
 GameObject:
@@ -31347,7 +31347,7 @@ MonoBehaviour:
   speed: 0
   gm: {fileID: 135187803}
   fallDetector: {fileID: 227690749}
-  jumpForce: 4500
+  jumpForce: 7000
   animator: {fileID: 1617921748}
 --- !u!61 &1617921751
 BoxCollider2D:

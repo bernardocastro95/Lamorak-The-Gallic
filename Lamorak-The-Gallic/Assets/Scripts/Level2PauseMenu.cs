@@ -26,6 +26,7 @@ public class Level2PauseMenu : MonoBehaviour
         }
         gameButton.onClick.AddListener(resumeGame);
         mainMenuButton.onClick.AddListener(backtoMainMenu);
+        middleText.text = "Press A or D to move. Press Space to jump. You need to run to the end before time runs out";
     }
 
     void Update()
@@ -35,6 +36,10 @@ public class Level2PauseMenu : MonoBehaviour
             gm.gameIsPaused();
             pauseMenu();
 
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            middleText.text = "";
         }
     }
     void pauseMenu()
