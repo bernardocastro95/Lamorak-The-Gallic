@@ -115,6 +115,14 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(5);
         }
+        if(collision.gameObject.tag == "Obstacle")
+        {
+            speed = speed / 2;
+        }
+        else if (collision.gameObject.tag != "Obstacle")
+        {
+            speed = speed * 2;
+        }
         
     }
 }

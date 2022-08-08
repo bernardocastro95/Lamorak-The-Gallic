@@ -14,6 +14,7 @@ public class IntroButtons : MonoBehaviour
         beginButton.onClick.AddListener(level1);
         backButton.onClick.AddListener(backMainMenu);
         beginButton.onClick.AddListener(level2);
+        beginButton.onClick.AddListener(level3);
     }
 
     public void level1()
@@ -27,5 +28,9 @@ public class IntroButtons : MonoBehaviour
     public void level2()
     {
         SceneManager.LoadScene(4);
+    }
+    public void level3()
+    {
+        SceneManager.LoadScene(6);
     }
 }
