@@ -150,7 +150,7 @@ RectTransform:
   m_GameObject: {fileID: 241895638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1084462315}
   m_RootOrder: 3
@@ -418,7 +418,7 @@ RectTransform:
   m_GameObject: {fileID: 745175343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1084462315}
   m_RootOrder: 4
@@ -461,7 +461,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ladorak the Gallic
+  m_Text: Lamorak the Gallic
 --- !u!222 &745175346
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -498,7 +498,7 @@ RectTransform:
   m_GameObject: {fileID: 775229209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 924733435}
   m_Father: {fileID: 1084462315}
@@ -2810,14 +2810,14 @@ RectTransform:
   m_GameObject: {fileID: 1728884245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.4, y: 3.4, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1084462315}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -377.59, y: -75.9}
+  m_AnchoredPosition: {x: -377.59, y: -131}
   m_SizeDelta: {x: 152.6, y: 91.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728884247
@@ -2967,7 +2967,7 @@ RectTransform:
   m_GameObject: {fileID: 1951557386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 1780511977}
   m_Father: {fileID: 1084462315}
