@@ -530,7 +530,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 26
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -3665,10 +3665,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   gm: {fileID: 2042383507}
-  groundCheckCollider: {fileID: 1292705932}
-  ground:
-    serializedVersion: 2
-    m_Bits: 1024
+  fallDetector: {fileID: 0}
+  jumpForce: 0
   animator: {fileID: 2002848966}
 --- !u!50 &2002848968
 Rigidbody2D:
@@ -3705,7 +3703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 2002848966}
   aim: {x: 0, y: 0}
-  force: 12
+  force: 6
   arrow: {fileID: 7718094287221438271, guid: f0bf187b6b72fcf428d434b0a010c975, type: 3}
   launch: 1000
   shotPoint: {fileID: 1367559557}
