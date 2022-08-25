@@ -36,13 +36,14 @@ public class Arrow : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Target")
         {
             hit = true;
             r2d.velocity = Vector2.zero;
             r2d.isKinematic = true;
+            yield return new WaitForSeconds(3);
             SceneManager.LoadScene(3);
             
         }
