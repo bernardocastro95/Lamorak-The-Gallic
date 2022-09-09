@@ -18,6 +18,8 @@ public class UI : MonoBehaviour
     private GameManager gm;
     [SerializeField]
     private Arrow arrow;
+    [SerializeField]
+    public GameObject endText;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +44,9 @@ public class UI : MonoBehaviour
             gm.gameIsPaused();
             pauseMenu();
             
-        } 
+        }
+
+        arrowHit();
     }
 
     public void lifeUiManager()
@@ -89,5 +93,13 @@ public class UI : MonoBehaviour
     void backtoMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    void arrowHit()
+    {
+        if(arrow.hit == true)
+        {
+            endText.SetActive(true);
+        }
     }
 }

@@ -12,6 +12,8 @@ public class Arrow : MonoBehaviour
     void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
+        
+        
     }
 
     // Update is called once per frame
@@ -53,4 +55,5 @@ public class Arrow : MonoBehaviour
             Destroy(this);
         }
     }
+
 }
