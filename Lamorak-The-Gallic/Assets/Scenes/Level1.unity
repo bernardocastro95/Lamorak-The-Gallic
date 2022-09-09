@@ -422,7 +422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &157826534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '                                    WELL DONE'
+  m_Text: 
 --- !u!222 &157826535
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -830,8 +830,8 @@ MonoBehaviour:
   gameButton: {fileID: 53458748}
   mainMenuButton: {fileID: 1794823314}
   lifes: 0
+  endText: {fileID: 0}
   arrow: {fileID: 353645745996341301, guid: c003c3cf88eae9b4abee49479c4294b5, type: 3}
-  endText: {fileID: 157826533}
 --- !u!1 &781929016
 GameObject:
   m_ObjectHideFlags: 0

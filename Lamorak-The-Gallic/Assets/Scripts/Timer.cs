@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     Text middleText;
     [SerializeField]
     GameManager gm;
-    AudioSource aSource;
+    AudioSource aSource, music;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,9 @@ public class Timer : MonoBehaviour
         restart.onClick.AddListener(restartGame);
         menu.onClick.AddListener(mainMenu);
         aSource = GetComponent<AudioSource>();
+        music = GetComponent<AudioSource>();
         aSource.Stop();
+        music.Play();
         
         
     }
@@ -40,6 +42,7 @@ public class Timer : MonoBehaviour
 
                 if(timeLeft >= 5.00f)
                 {
+                    music.Stop();
                     aSource.Play();
                 }
             } 
@@ -48,6 +51,7 @@ public class Timer : MonoBehaviour
                 gm.gameIsOver();
                 gameOverScreen();
                 aSource.Stop();
+                music.Stop();
             }
         }
     }

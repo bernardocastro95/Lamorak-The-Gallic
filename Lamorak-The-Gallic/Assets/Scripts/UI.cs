@@ -17,9 +17,10 @@ public class UI : MonoBehaviour
     public int lifes;
     private GameManager gm;
     [SerializeField]
-    private Arrow arrow;
+    public Text endText;
     [SerializeField]
-    public GameObject endText;
+    private Arrow arrow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -99,7 +100,7 @@ public class UI : MonoBehaviour
     {
         if(arrow.hit == true)
         {
-            endText.SetActive(true);
+            endText.text = "                                    WELL DONE";
         }
     }
 }
