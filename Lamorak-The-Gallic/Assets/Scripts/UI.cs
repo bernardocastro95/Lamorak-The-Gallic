@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class UI : MonoBehaviour
 {
@@ -18,8 +19,6 @@ public class UI : MonoBehaviour
     private GameManager gm;
     [SerializeField]
     public Text endText;
-    [SerializeField]
-    private Arrow arrow;
 
     // Start is called before the first frame update
     void Start()
@@ -46,8 +45,6 @@ public class UI : MonoBehaviour
             pauseMenu();
             
         }
-
-        arrowHit();
     }
 
     public void lifeUiManager()
@@ -94,13 +91,5 @@ public class UI : MonoBehaviour
     void backtoMainMenu()
     {
         SceneManager.LoadScene(0);
-    }
-
-    void arrowHit()
-    {
-        if(arrow.hit == true)
-        {
-            endText.text = "                                    WELL DONE";
-        }
     }
 }

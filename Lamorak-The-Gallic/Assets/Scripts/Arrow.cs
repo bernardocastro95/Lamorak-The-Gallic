@@ -9,10 +9,13 @@ public class Arrow : MonoBehaviour
     Vector2 direction = Vector2.one.normalized;
     Rigidbody2D r2d;
     public bool hit = false;
+    [SerializeField]
+    AudioSource aSource;
     // Start is called before the first frame update
     void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
+        aSource = GetComponent<AudioSource>();
         
         
     }
@@ -46,6 +49,7 @@ public class Arrow : MonoBehaviour
             hit = true;
             r2d.velocity = Vector2.zero;
             r2d.isKinematic = true;
+            aSource.Play();
             yield return new WaitForSeconds(3);
             SceneManager.LoadScene(3);
             
