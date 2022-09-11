@@ -11,11 +11,13 @@ public class Arrow : MonoBehaviour
     public bool hit = false;
     [SerializeField]
     AudioSource aSource;
+    [SerializeField]
+    AudioSource aFail;
     // Start is called before the first frame update
     void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
-        aSource = GetComponent<AudioSource>();
+        //aSource = GetComponent<AudioSource>();
         
         
     }
@@ -44,11 +46,12 @@ public class Arrow : MonoBehaviour
 
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Target")
+        if(collision.gameObject.tag == "Center")
         {
             hit = true;
             r2d.velocity = Vector2.zero;
             r2d.isKinematic = true;
+            aFail.Stop();
             aSource.Play();
             yield return new WaitForSeconds(3);
             SceneManager.LoadScene(3);
@@ -58,6 +61,11 @@ public class Arrow : MonoBehaviour
         {
             hit = true;
             Destroy(this);
+        }
+        else
+        {
+            aSource.Stop();
+            aFail.Play();
         }
     }
 

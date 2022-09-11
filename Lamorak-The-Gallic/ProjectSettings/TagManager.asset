@@ -12,6 +12,7 @@ TagManager:
   - Begin
   - FinishFlag
   - Obstacle
+  - Center
   layers:
   - Default
   - TransparentFX
