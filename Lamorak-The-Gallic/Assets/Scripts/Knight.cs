@@ -9,7 +9,8 @@ public class Knight : MonoBehaviour
     float inputX, inputY;
     [SerializeField]
     GameManager gm;
-    //public Animator animator;
+    [SerializeField]
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class Knight : MonoBehaviour
     void Update()
     {
 
-        //animator.SetFloat("GroundSpeed", Mathf.Abs(speed));
+        animator.SetFloat("speed", Mathf.Abs(speed));
 
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
