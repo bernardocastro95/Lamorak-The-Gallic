@@ -13,6 +13,7 @@ TagManager:
   - FinishFlag
   - Obstacle
   - Center
+  - Enemy
   layers:
   - Default
   - TransparentFX

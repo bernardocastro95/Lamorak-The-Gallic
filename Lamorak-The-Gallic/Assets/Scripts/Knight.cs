@@ -28,7 +28,7 @@ public class Knight : MonoBehaviour
         inputY = Input.GetAxisRaw("Vertical");
 
         Movement();
-        
+        Attack();
 
 
         if (gm.paused == true || gm.isGameOver == true)
@@ -77,6 +77,18 @@ public class Knight : MonoBehaviour
 
         }
 
+    }
+
+    void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            animator.SetBool("clicked", true);
+        }
+        else
+        {
+            animator.SetBool("clicked", false);
+        }
     }
 
 }
