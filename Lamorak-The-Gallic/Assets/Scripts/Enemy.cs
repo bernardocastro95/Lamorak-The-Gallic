@@ -4,64 +4,52 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [HideInInspector]
+    public bool patrol;
+    public Rigidbody2D r2d;
     public float speed;
-    Rigidbody2D r2d;
-    [SerializeField]
-    GameManager gm;
-    [SerializeField]
     public Animator animator;
-    [SerializeField]
-    public Transform[] waypoints;
-    private int waypointIndex;
+    public Transform groundChecker;
+    private bool turn;
+    public LayerMask groundLayer;
+
     // Start is called before the first frame update
     void Start()
     {
-        r2d = GetComponent<Rigidbody2D>();     
-        transform.position = waypoints[waypointIndex].transform.position;
+        patrol = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        Vector3 pos = transform.position;
-        pos.z = -9;
-        transform.position = pos;
-        if (gm.paused == true || gm.isGameOver == true)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
-
-        movePattern();
-    }
-
-    void movePattern()
-    {
-        if(waypointIndex <= waypoints.Length - 1)
+        if (patrol)
         {
             animator.SetFloat("speed", Mathf.Abs(speed));
-            transform.position = Vector2.MoveTowards(transform.position,
-                waypoints[waypointIndex].transform.position, speed * Time.deltaTime);
-        }
-        if(transform.position == waypoints[waypointIndex].transform.position)
-        {
-            waypointIndex += 1;
+            move();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void FixedUpdate()
     {
-        if(collision.tag == "Player")
+        if (patrol)
         {
-            animator.SetBool("enemyClose", true);
+            turn = !Physics2D.OverlapCircle(groundChecker.position, 0.1f, groundLayer);
         }
-        else
+    }
+
+    void move()
+    {
+        if (turn)
         {
-            animator.SetBool("enemyClose", false);
+            flip();
         }
+        r2d.velocity = new Vector2(speed * Time.fixedDeltaTime, r2d.velocity.y);
+    }
+    void flip()
+    {
+        patrol = false;
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        speed *= -1;
+        patrol = true;
     }
 }
