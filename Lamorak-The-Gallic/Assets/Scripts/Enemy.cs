@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
             animator.SetFloat("speed", Mathf.Abs(speed));
             move();
         }
+        flip(); 
     }
 
     private void FixedUpdate()
@@ -39,17 +40,21 @@ public class Enemy : MonoBehaviour
 
     void move()
     {
-        if (turn)
-        {
-            flip();
-        }
+        flip();
         r2d.velocity = new Vector2(speed * Time.fixedDeltaTime, r2d.velocity.y);
     }
     void flip()
     {
-        patrol = false;
-        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
-        speed *= -1;
-        patrol = true;
+        if(gameObject.transform.position.x == 0)
+        {
+            speed = speed * -1;
+            gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
+
+        }
+        else if(gameObject.transform.position.x == 7.8)
+        {
+            speed = speed * -1;
+            gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+        }
     }
 }
