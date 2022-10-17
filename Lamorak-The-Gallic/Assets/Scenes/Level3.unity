@@ -416,14 +416,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf46584be562da24f8cefbe85cae7a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrol: 0
   r2d: {fileID: 817704738}
   speed: -50
+  player: {fileID: 1920901043}
   animator: {fileID: 817704736}
-  groundChecker: {fileID: 1000664975}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!1 &1000664974
 GameObject:
   m_ObjectHideFlags: 0
