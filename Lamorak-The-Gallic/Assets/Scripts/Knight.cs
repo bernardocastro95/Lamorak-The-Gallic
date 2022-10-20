@@ -15,6 +15,7 @@ public class Knight : MonoBehaviour
     void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
+        
 
     }
 
@@ -56,7 +57,7 @@ public class Knight : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 speed += 10;
-                gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                gameObject.transform.localScale = new Vector3(1.8f, 1.8f, 1f);
             }
 
             if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
@@ -67,7 +68,7 @@ public class Knight : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 speed += 10;
-                gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
+                gameObject.transform.localScale = new Vector3(-1.8f, 1.8f, 1f);
             }
 
             if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
