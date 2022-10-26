@@ -11,6 +11,7 @@ public class Knight : MonoBehaviour
     GameManager gm;
     [SerializeField]
     public Animator animator;
+    public Enemy enemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,13 +83,26 @@ public class Knight : MonoBehaviour
 
     void Attack()
     {
+        
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             animator.SetBool("clicked", true);
+
         }
         else
         {
             animator.SetBool("clicked", false);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Enemy")
+        {
+            enemy.animator.SetBool("hurt", true);
+        }
+        else if (collision.tag != "Enemy")
+        {
+            enemy.animator.SetBool("hurt", false);
         }
     }
 
