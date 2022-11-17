@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer sRenderer;
     public Animator animator;
     bool faceLeft = true;
+    public Knight knight;
 
     public void Awake()
     {
@@ -20,8 +21,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         animator.SetFloat("speed", Mathf.Abs(speed));
-
         flip();
         move();
         this.sRenderer.flipX = player.transform.position.x > this.transform.position.x;
@@ -60,11 +61,14 @@ public class Enemy : MonoBehaviour
         if(collision.tag == "Player")
         {
             animator.SetBool("enemyClose", true);
+            knight.animator.SetBool("enemyAttack", true);
         }
-        else
-        {
-            animator.SetBool("enemyClose", false);
-        }
+        
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        animator.SetBool("enemyClose", false);
+        knight.animator.SetBool("enemyAttack", false);
     }
 
 }

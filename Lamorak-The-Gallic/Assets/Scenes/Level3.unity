@@ -931,6 +931,7 @@ MonoBehaviour:
   speed: -50
   player: {fileID: 1920901043}
   animator: {fileID: 817704736}
+  knight: {fileID: 1920901045}
 --- !u!1 &978543585
 GameObject:
   m_ObjectHideFlags: 0

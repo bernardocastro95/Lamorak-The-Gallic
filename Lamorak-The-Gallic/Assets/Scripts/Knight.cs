@@ -6,7 +6,7 @@ public class Knight : MonoBehaviour
 {
     public float speed = 0;
     Rigidbody2D r2d;
-    float inputX, inputY;
+    float inputX, inputY, distance;
     [SerializeField]
     GameManager gm;
     [SerializeField]
@@ -16,15 +16,15 @@ public class Knight : MonoBehaviour
     void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
-        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        distance = Vector3.Distance(transform.position, enemy.transform.position);
         animator.SetFloat("speed", Mathf.Abs(speed));
+        enemy.animator.SetFloat("distance", Mathf.Abs(distance));
 
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
@@ -87,23 +87,20 @@ public class Knight : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             animator.SetBool("clicked", true);
+           
+            if(distance < 2f)
+            {
+                enemy.animator.SetBool("hurt", true);
+            }
 
         }
         else
         {
             animator.SetBool("clicked", false);
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Enemy")
-        {
-            enemy.animator.SetBool("hurt", true);
-        }
-        else if (collision.tag != "Enemy")
-        {
             enemy.animator.SetBool("hurt", false);
+            //enemy.animator.SetBool("enemyClose", true);
         }
     }
+   
 
 }
