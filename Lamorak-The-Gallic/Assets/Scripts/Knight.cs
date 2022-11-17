@@ -97,10 +97,24 @@ public class Knight : MonoBehaviour
         else
         {
             animator.SetBool("clicked", false);
-            enemy.animator.SetBool("hurt", false);
-            //enemy.animator.SetBool("enemyClose", true);
+            enemy.animator.SetBool("hurt", false);     
         }
     }
-   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            enemy.animator.SetBool("enemyClose", true);
+            animator.SetBool("enemyAttack", true);
+        }
+
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        enemy.animator.SetBool("enemyClose", false);
+        animator.SetBool("enemyAttack", false);
+    }
+
 
 }
