@@ -12,6 +12,8 @@ public class Knight : MonoBehaviour
     [SerializeField]
     public Animator animator;
     public Enemy enemy;
+    /*[SerializeField]
+    GameObject canvas;*/
     // Start is called before the first frame update
     void Start()
     {

@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
         if(collision.tag == "Player")
         {
             animator.SetBool("enemyClose", true);
-            knight.animator.SetBool("enemyAttack", true);
+            knight.animator.SetBool("enemyAttack", true);  
         }
         
     }

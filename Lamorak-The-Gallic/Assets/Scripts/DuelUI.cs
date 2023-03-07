@@ -13,6 +13,8 @@ public class DuelUI : MonoBehaviour
     [SerializeField]
     Button mainMenuButton;
     int playerLifes, enemyLifes;
+    [SerializeField]
+    GameObject playerHeart;
     private GameManager gm;
     // Start is called before the first frame update
     void Start()
@@ -43,8 +45,17 @@ public class DuelUI : MonoBehaviour
     {
         playerLifes = 3;
         playerLifes -= 1;
+        playerHeart.gameObject.SetActive(false);
+
+        
         if(playerLifes == 0)
         {
+            gm.gameIsOver();
+            Time.timeScale = 0;
+            middleText.text = "                               GAME OVER";
+            gameButton.gameObject.SetActive(true);
+            gameButton.GetComponentInChildren<Text>().text = "Restart";
+            mainMenuButton.gameObject.SetActive(true);
 
         }
 
@@ -60,7 +71,7 @@ public class DuelUI : MonoBehaviour
 
     }
 
-    public void pauseMenu()
+    void pauseMenu()
     {
         Time.timeScale = 0;
         middleText.text = "                 GAME PAUSED";
@@ -70,18 +81,19 @@ public class DuelUI : MonoBehaviour
         
 
     }
-    public void resumeGame()
+    void resumeGame()
     {
         Time.timeScale = 1;
         middleText.text = "";
         gameButton.gameObject.SetActive(false);
         mainMenuButton.gameObject.SetActive(false);
     }
-    public void restartGame()
+    void restartGame()
     {
         Time.timeScale = 1;
         middleText.text = "";
         gameButton.gameObject.SetActive(false);
+        mainMenuButton.gameObject.SetActive(false);
     }
     public void backtoMainMenu()
     {
