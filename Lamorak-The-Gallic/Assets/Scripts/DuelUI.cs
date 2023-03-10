@@ -13,12 +13,16 @@ public class DuelUI : MonoBehaviour
     [SerializeField]
     Button mainMenuButton;
     int playerLifes, enemyLifes;
-    [SerializeField]
-    GameObject playerHeart;
     private GameManager gm;
+    [SerializeField]
+    Text PlayerLifesCounter;
+    [SerializeField]
+    Text EnemyLifesCounter;
     // Start is called before the first frame update
     void Start()
     {
+        playerLifes = 3;
+        enemyLifes = 3;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         if (gm == null)
@@ -43,10 +47,8 @@ public class DuelUI : MonoBehaviour
 
     public void playerLifeManager()
     {
-        playerLifes = 3;
         playerLifes -= 1;
-        playerHeart.gameObject.SetActive(false);
-
+        PlayerLifesCounter.text = playerLifes.ToString();
         
         if(playerLifes == 0)
         {
@@ -62,9 +64,9 @@ public class DuelUI : MonoBehaviour
     }
     public void enemyLifeManager()
     {
-        enemyLifes = 3;
         enemyLifes -= 1;
-        if(enemyLifes < 0)
+        EnemyLifesCounter.text = enemyLifes.ToString();
+        if (enemyLifes < 0)
         {
 
         }

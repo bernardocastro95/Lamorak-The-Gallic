@@ -12,8 +12,8 @@ public class Knight : MonoBehaviour
     [SerializeField]
     public Animator animator;
     public Enemy enemy;
-    /*[SerializeField]
-    GameObject canvas;*/
+    [SerializeField]
+    private DuelUI ui;
     // Start is called before the first frame update
     void Start()
     {
@@ -109,6 +109,7 @@ public class Knight : MonoBehaviour
         {
             enemy.animator.SetBool("enemyClose", true);
             animator.SetBool("enemyAttack", true);
+            ui.playerLifeManager();
         }
 
     }
