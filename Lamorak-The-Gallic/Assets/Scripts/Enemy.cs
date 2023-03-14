@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     bool faceLeft = true;
     public Knight knight;
+    [SerializeField]
+    private DuelUI ui;
 
     public void Awake()
     {
@@ -61,7 +63,8 @@ public class Enemy : MonoBehaviour
         if(collision.tag == "Player")
         {
             animator.SetBool("enemyClose", true);
-            knight.animator.SetBool("enemyAttack", true);  
+            knight.animator.SetBool("enemyAttack", true);
+            ui.playerLifeManager();
         }
         
     }

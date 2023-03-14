@@ -93,6 +93,7 @@ public class Knight : MonoBehaviour
             if(distance < 2f)
             {
                 enemy.animator.SetBool("hurt", true);
+                ui.enemyLifeManager();
             }
 
         }
@@ -109,7 +110,6 @@ public class Knight : MonoBehaviour
         {
             enemy.animator.SetBool("enemyClose", true);
             animator.SetBool("enemyAttack", true);
-            ui.playerLifeManager();
         }
 
     }

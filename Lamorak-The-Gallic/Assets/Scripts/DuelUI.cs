@@ -12,6 +12,8 @@ public class DuelUI : MonoBehaviour
     Button gameButton;
     [SerializeField]
     Button mainMenuButton;
+    [SerializeField]
+    Button restartButton;
     int playerLifes, enemyLifes;
     private GameManager gm;
     [SerializeField]
@@ -30,8 +32,8 @@ public class DuelUI : MonoBehaviour
             Debug.LogError("No Game Manager");
         }
         gameButton.onClick.AddListener(resumeGame);
-        gameButton.onClick.AddListener(restartGame);
         mainMenuButton.onClick.AddListener(backtoMainMenu);
+        restartButton.onClick.AddListener(restartGame);
     }
 
     // Update is called once per frame
@@ -52,11 +54,12 @@ public class DuelUI : MonoBehaviour
         
         if(playerLifes == 0)
         {
-            gm.gameIsOver();
+            
             Time.timeScale = 0;
-            middleText.text = "                               GAME OVER";
-            gameButton.gameObject.SetActive(true);
-            gameButton.GetComponentInChildren<Text>().text = "Restart";
+            gm.gameIsOver();
+            middleText.text = "                        GAME OVER";
+            restartButton.gameObject.SetActive(true);
+            restartButton.GetComponentInChildren<Text>().text = "Restart";
             mainMenuButton.gameObject.SetActive(true);
 
         }
@@ -66,9 +69,12 @@ public class DuelUI : MonoBehaviour
     {
         enemyLifes -= 1;
         EnemyLifesCounter.text = enemyLifes.ToString();
-        if (enemyLifes < 0)
+        if (enemyLifes == 0)
         {
-
+            Time.timeScale = 0;
+            gm.gameIsPaused();
+            middleText.text = "                               WELL DONE";
+            SceneManager.LoadScene(7);
         }
 
     }
@@ -83,15 +89,16 @@ public class DuelUI : MonoBehaviour
         
 
     }
-    void resumeGame()
-    {
-        Time.timeScale = 1;
-        middleText.text = "";
-        gameButton.gameObject.SetActive(false);
-        mainMenuButton.gameObject.SetActive(false);
-    }
     void restartGame()
     {
+        SceneManager.LoadScene(6);
+        middleText.text = "";
+        restartButton.gameObject.SetActive(false);
+        mainMenuButton.gameObject.SetActive(false);
+    }
+    void resumeGame()
+    {
+        gm.gameNotPaused();
         Time.timeScale = 1;
         middleText.text = "";
         gameButton.gameObject.SetActive(false);
