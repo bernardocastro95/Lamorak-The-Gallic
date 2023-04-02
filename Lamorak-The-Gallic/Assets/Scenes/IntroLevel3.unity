@@ -838,7 +838,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Your speed has been tested and now you've been granted a sword and shield.
-    After proper training, you now must prove you can handle against a worthy opponent
+    After proper training and reaching the peak of your physical strenght and height,
+    you now must prove you can handle against a worthy opponent
 --- !u!222 &1611405978
 CanvasRenderer:
   m_ObjectHideFlags: 0
