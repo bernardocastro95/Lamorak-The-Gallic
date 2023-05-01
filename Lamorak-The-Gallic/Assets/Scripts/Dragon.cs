@@ -17,4 +17,18 @@ public class Dragon : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            animator.SetBool("enemyClose", true);
+            df.animator.SetBool("enemyAttack", true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        animator.SetBool("enemyClose", false);
+        df.animator.SetBool("enemyAttack", false);
+    }
 }
