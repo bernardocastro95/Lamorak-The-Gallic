@@ -178,9 +178,9 @@ GameObject:
   - component: {fileID: 307162172}
   - component: {fileID: 307162173}
   - component: {fileID: 307162175}
+  - component: {fileID: 307162177}
   - component: {fileID: 307162176}
   - component: {fileID: 307162174}
-  - component: {fileID: 307162177}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -323,7 +323,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.012741655, y: -0.15290114}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -334,7 +334,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5233529, y: 0.84334105}
+  m_Size: {x: 1.84, y: 1.37}
   m_EdgeRadius: 0
 --- !u!1 &614763218
 GameObject:
@@ -2372,7 +2372,7 @@ GameObject:
   - component: {fileID: 1799423026}
   m_Layer: 0
   m_Name: Dragon
-  m_TagString: Untagged
+  m_TagString: Dragon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

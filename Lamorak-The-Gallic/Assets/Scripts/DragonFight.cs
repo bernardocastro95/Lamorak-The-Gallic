@@ -90,10 +90,10 @@ public class DragonFight : MonoBehaviour
         {
             animator.SetBool("clicked", true);
 
-            if (distance < 2f)
+            if (distance < 2.3f)
             {
                 dragon.animator.SetBool("hurt", true);
-                ui.enemyLifeManager();
+                //ui.enemyLifeManager();
             }
 
         }
@@ -104,20 +104,19 @@ public class DragonFight : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if(collision.tag == "Dragon")
         {
             dragon.animator.SetBool("enemyClose", true);
             animator.SetBool("enemyAttack", true);
         }
-
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         dragon.animator.SetBool("enemyClose", false);
         animator.SetBool("enemyAttack", false);
-    }
+    }*/
 
 
 }
