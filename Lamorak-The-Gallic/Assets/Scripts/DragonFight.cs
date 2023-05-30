@@ -12,12 +12,14 @@ public class DragonFight : MonoBehaviour
     [SerializeField]
     public Animator animator;
     public Dragon dragon;
-    [SerializeField]
-    private DuelUI ui;
+    public bool isClicked = false;
+    /*[SerializeField]
+    private DuelUI ui;*/
     // Start is called before the first frame update
     void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
     }
 
@@ -33,6 +35,7 @@ public class DragonFight : MonoBehaviour
 
         Movement();
         Attack();
+        Attacked();
 
 
         if (gm.paused == true || gm.isGameOver == true)
@@ -88,6 +91,7 @@ public class DragonFight : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            isClicked = true;
             animator.SetBool("clicked", true);
 
             if (distance < 2.3f)
@@ -99,8 +103,21 @@ public class DragonFight : MonoBehaviour
         }
         else
         {
+            isClicked = false;
             animator.SetBool("clicked", false);
             dragon.animator.SetBool("hurt", false);
+        }
+    }
+
+    void Attacked()
+    {
+        if (distance < 2.3f)
+        {
+            animator.SetBool("enemyAttack", true);
+        }
+        else
+        {
+            animator.SetBool("enemyAttack", false);
         }
     }
 

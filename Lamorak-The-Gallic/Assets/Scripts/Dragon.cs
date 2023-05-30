@@ -6,30 +6,36 @@ public class Dragon : MonoBehaviour
 {
     public Animator animator;
     public DragonFight df;
+    float distance;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        distance = Vector3.Distance(transform.position, df.transform.position);
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Attacked(); 
+    }
+
+    void Attacked()
+    {
+        if(distance < 2.6f)
+        {
+            animator.SetBool("hurt", true);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            animator.SetBool("enemyClose", true);
-            df.animator.SetBool("enemyAttack", true);
+            animator.SetTrigger("enemyClose");
+            df.animator.SetTrigger("enemyAttack");
         }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        animator.SetBool("enemyClose", false);
-        df.animator.SetBool("enemyAttack", false);
     }
 }
 
