@@ -13,8 +13,8 @@ public class DragonFight : MonoBehaviour
     public Animator animator;
     public Dragon dragon;
     public bool isClicked = false;
-    /*[SerializeField]
-    private DuelUI ui;*/
+    [SerializeField]
+    private DuelUI ui;
     // Start is called before the first frame update
     void Start()
     {
@@ -97,7 +97,7 @@ public class DragonFight : MonoBehaviour
             if (distance < 2.3f)
             {
                 dragon.animator.SetBool("hurt", true);
-                //ui.enemyLifeManager();
+                ui.enemyLifeManager();
             }
 
         }

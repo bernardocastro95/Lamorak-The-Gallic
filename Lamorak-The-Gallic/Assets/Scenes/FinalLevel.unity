@@ -389,6 +389,7 @@ MonoBehaviour:
   animator: {fileID: 307162174}
   dragon: {fileID: 1799423024}
   isClicked: 0
+  ui: {fileID: 1852736999}
 --- !u!61 &307162177
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3249,6 +3250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1799423023}
   df: {fileID: 307162176}
+  ui: {fileID: 1852736999}
 --- !u!61 &1799423025
 BoxCollider2D:
   m_ObjectHideFlags: 0
