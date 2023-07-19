@@ -104,6 +104,18 @@ public class DuelUI : MonoBehaviour
         gameButton.gameObject.SetActive(false);
         mainMenuButton.gameObject.SetActive(false);
     }
+
+    public void gameWinner()
+    {
+        if(enemyLifes == 0)
+        {
+            gm.gameIsPaused();
+            Time.timeScale = 0;
+            middleText.text = "YOU DID IT";
+            SceneManager.LoadScene(9);
+        }       
+        
+    }
     public void backtoMainMenu()
     {
         SceneManager.LoadScene(0);

@@ -39,6 +39,7 @@ public class Dragon : MonoBehaviour
             animator.SetTrigger("enemyClose");
             df.animator.SetTrigger("enemyAttack");
             ui.playerLifeManager();
+            ui.gameWinner();
         }
     }
 }
