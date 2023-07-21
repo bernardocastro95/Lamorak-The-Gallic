@@ -8,7 +8,7 @@ public class Dragon : MonoBehaviour
     public DragonFight df;
     float distance;
     [SerializeField]
-    private DuelUI ui;
+    private FinalDuelUI fui;
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +38,8 @@ public class Dragon : MonoBehaviour
         {
             animator.SetTrigger("enemyClose");
             df.animator.SetTrigger("enemyAttack");
-            ui.playerLifeManager();
-            ui.gameWinner();
+            fui.playerLifeManager();
+            fui.enemyLifeManager();
         }
     }
 }
