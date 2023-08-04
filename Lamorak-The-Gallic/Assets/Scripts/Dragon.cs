@@ -4,43 +4,54 @@ using UnityEngine;
 
 public class Dragon : MonoBehaviour
 {
+
     public Animator animator;
     public DragonFight df;
-    float distance;
-    [SerializeField]
-    private FinalDuelUI fui;
-
+    public float distance;
+    public FinalDuelUI fui;
+    public bool enemyClose, hurt;
     // Start is called before the first frame update
     void Start()
     {
-        distance = Vector3.Distance(transform.position, df.transform.position);
+        
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Attacked(); 
+        distance = Vector3.Distance(transform.position, df.transform.position);
+        animator.SetBool("enemyClose", false);
+        Attack();
+        Attacked();
+        
     }
 
-    void Attacked()
+    void Attack()
     {
-        if(distance < 2.6f)
+        if (distance < 2.5f)
         {
-            animator.SetBool("hurt", true);
-            
+            enemyClose = true;
+            animator.SetBool("enemyClose", true);
+
+        }
+        else
+        {
+            enemyClose = false;
+            animator.SetBool("enemyClose", false);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    void Attacked()
     {
-        if(collision.tag == "Player")
+        if (distance < 3f && df.isClicked == true)
         {
-            animator.SetTrigger("enemyClose");
-            df.animator.SetTrigger("enemyAttack");
-            fui.playerLifeManager();
-            fui.enemyLifeManager();
+            hurt = true;
+            animator.SetBool("hurt", true);
+        }
+       else
+        {
+            hurt = false;
+            animator.SetBool("hurt", false);
         }
     }
 }
-

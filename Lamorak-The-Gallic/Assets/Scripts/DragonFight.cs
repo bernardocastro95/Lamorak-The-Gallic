@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,8 @@ public class DragonFight : MonoBehaviour
 {
     public float speed = 0;
     Rigidbody2D r2d;
-    float inputX, inputY, distance;
+    float inputX, inputY;
+    public float distance;
     [SerializeField]
     GameManager gm;
     [SerializeField]
@@ -15,8 +17,9 @@ public class DragonFight : MonoBehaviour
     public bool isClicked = false;
     [SerializeField]
     private FinalDuelUI fui;
+    public bool enemyAttack;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -24,18 +27,21 @@ public class DragonFight : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        distance = Vector3.Distance(transform.position, dragon.transform.position);
+        distance = Vector3.Distance(dragon.transform.position, transform.position);
         animator.SetFloat("speed", Mathf.Abs(speed));
         dragon.animator.SetFloat("distance", Mathf.Abs(distance));
+        animator.SetBool("enemyAttack", false);
 
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
 
+
         Movement();
         Attack();
         Attacked();
+        
 
 
         if (gm.paused == true || gm.isGameOver == true)
@@ -94,10 +100,9 @@ public class DragonFight : MonoBehaviour
             isClicked = true;
             animator.SetBool("clicked", true);
 
-            if (distance < 2.3f)
+            if (dragon.distance < 3f)
             {
                 dragon.animator.SetBool("hurt", true);
-                fui.enemyLifeManager();
             }
 
         }
@@ -106,15 +111,16 @@ public class DragonFight : MonoBehaviour
             isClicked = false;
             animator.SetBool("clicked", false);
             dragon.animator.SetBool("hurt", false);
+            
         }
     }
 
     void Attacked()
     {
-        if (distance < 5f)
+        if (distance < 1.8f && dragon.enemyClose == true)
         {
             animator.SetBool("enemyAttack", true);
-            fui.playerLifeManager();
+            
         }
         else
         {
@@ -122,19 +128,7 @@ public class DragonFight : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Dragon")
-        {
-            dragon.animator.SetBool("enemyClose", true);
-            animator.SetBool("enemyAttack", true);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        dragon.animator.SetBool("enemyClose", false);
-        animator.SetBool("enemyAttack", false);
-    }*/
+    
 
 
 }

@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  distance: 0
   gm: {fileID: 614763219}
   animator: {fileID: 307162174}
   dragon: {fileID: 1799423024}
@@ -3141,10 +3142,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1799423021}
   - component: {fileID: 1799423022}
-  - component: {fileID: 1799423024}
   - component: {fileID: 1799423025}
   - component: {fileID: 1799423026}
   - component: {fileID: 1799423023}
+  - component: {fileID: 1799423024}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Dragon
@@ -3250,7 +3251,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1799423023}
   df: {fileID: 307162176}
+  distance: 0
   fui: {fileID: 1852737000}
+  enemyClose: 0
+  hurt: 0
 --- !u!61 &1799423025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3261,7 +3265,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.14678484, y: -0.5382112}
