@@ -391,6 +391,7 @@ MonoBehaviour:
   dragon: {fileID: 1799423024}
   isClicked: 0
   fui: {fileID: 1852737000}
+  enemyAttack: 0
 --- !u!61 &307162177
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3255,6 +3256,8 @@ MonoBehaviour:
   fui: {fileID: 1852737000}
   enemyClose: 0
   hurt: 0
+  fireball: {fileID: 0}
+  shotPoint: {fileID: 0}
 --- !u!61 &1799423025
 BoxCollider2D:
   m_ObjectHideFlags: 0

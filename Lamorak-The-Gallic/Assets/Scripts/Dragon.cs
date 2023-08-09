@@ -10,6 +10,8 @@ public class Dragon : MonoBehaviour
     public float distance;
     public FinalDuelUI fui;
     public bool enemyClose, hurt;
+    public GameObject fireball;
+    public Transform shotPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class Dragon : MonoBehaviour
         {
             enemyClose = true;
             animator.SetBool("enemyClose", true);
+            //GameObject fireball = Instantiate(fireball, shotPoint, shotPoint);
 
         }
         else
