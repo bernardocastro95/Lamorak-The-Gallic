@@ -17,6 +17,7 @@ public class Dragon : MonoBehaviour
     {
         
         animator = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -35,7 +36,8 @@ public class Dragon : MonoBehaviour
         {
             enemyClose = true;
             animator.SetBool("enemyClose", true);
-            //GameObject fireball = Instantiate(fireball, shotPoint, shotPoint);
+            Instantiate(fireball, shotPoint.position, Quaternion.identity);
+            fireball.transform.Rotate(0, -200, 0);
 
         }
         else
