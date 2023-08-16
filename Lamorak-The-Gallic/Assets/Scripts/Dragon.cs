@@ -12,12 +12,15 @@ public class Dragon : MonoBehaviour
     public bool enemyClose, hurt;
     public GameObject fireball;
     public Transform shotPoint;
+    public float fireshotForce;
+    private float timer;
     // Start is called before the first frame update
     void Start()
     {
         
         animator = GetComponent<Animator>();
         
+
     }
 
     // Update is called once per frame
@@ -25,19 +28,22 @@ public class Dragon : MonoBehaviour
     {
         distance = Vector3.Distance(transform.position, df.transform.position);
         animator.SetBool("enemyClose", false);
+        timer += Time.deltaTime;
         Attack();
         Attacked();
-        
+
     }
 
     void Attack()
     {
-        if (distance < 2.5f)
+        if (timer > 5)
         {
+            timer = 0;
             enemyClose = true;
             animator.SetBool("enemyClose", true);
             Instantiate(fireball, shotPoint.position, Quaternion.identity);
-            fireball.transform.Rotate(0, -200, 0);
+            
+
 
         }
         else
@@ -59,4 +65,8 @@ public class Dragon : MonoBehaviour
             animator.SetBool("hurt", false);
         }
     }
+
+    
+
+
 }
