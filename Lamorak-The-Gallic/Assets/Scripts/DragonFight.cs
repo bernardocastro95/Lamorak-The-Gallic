@@ -40,7 +40,6 @@ public class DragonFight : MonoBehaviour
 
         Movement();
         Attack();
-        Attacked();
         
 
 
@@ -99,11 +98,8 @@ public class DragonFight : MonoBehaviour
         {
             isClicked = true;
             animator.SetBool("clicked", true);
+            dragon.animator.SetBool("hurt", true);
 
-            if (dragon.distance < 3f)
-            {
-                dragon.animator.SetBool("hurt", true);
-            }
 
         }
         else
@@ -115,20 +111,21 @@ public class DragonFight : MonoBehaviour
         }
     }
 
-    void Attacked()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (distance < 1.8f && dragon.enemyClose == true)
+        if(collision.tag == "FireBall") 
         {
+            enemyAttack = true;
             animator.SetBool("enemyAttack", true);
-            
         }
         else
         {
+            enemyAttack = false;
             animator.SetBool("enemyAttack", false);
         }
     }
 
-    
+
 
 
 }

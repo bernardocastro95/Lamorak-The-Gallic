@@ -54,10 +54,11 @@ public class Dragon : MonoBehaviour
     }
     void Attacked()
     {
-        if (distance < 3f && df.isClicked == true)
+        if (df.isClicked == true)
         {
             hurt = true;
             animator.SetBool("hurt", true);
+            fui.enemyLifeManager();
         }
        else
         {

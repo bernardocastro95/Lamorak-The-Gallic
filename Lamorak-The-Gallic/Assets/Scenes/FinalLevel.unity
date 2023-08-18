@@ -3287,7 +3287,7 @@ MonoBehaviour:
   fui: {fileID: 1852737000}
   enemyClose: 0
   hurt: 0
-  fireball: {fileID: 1522153819117755802, guid: 0623f683c5a7d3349b2d764003150669, type: 3}
+  fireball: {fileID: 436788115505672768, guid: 7de357ad24ddba04eb4f7cbec95d19f9, type: 3}
   shotPoint: {fileID: 1557290428}
   fireshotForce: 5000
 --- !u!61 &1799423025
