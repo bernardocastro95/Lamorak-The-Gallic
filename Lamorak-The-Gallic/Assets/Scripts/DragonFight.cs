@@ -111,9 +111,9 @@ public class DragonFight : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "FireBall") 
+        if(collision.gameObject.CompareTag("FireBall")) 
         {
             enemyAttack = true;
             animator.SetBool("enemyAttack", true);

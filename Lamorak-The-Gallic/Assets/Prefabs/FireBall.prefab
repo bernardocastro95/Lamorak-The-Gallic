@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4781689701180013966}
   - component: {fileID: 6921955459426010030}
   m_Layer: 0
-  m_Name: FireBall 1
+  m_Name: FireBall
   m_TagString: FireBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.027497292}
@@ -145,4 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 20
-  player: {fileID: 0}
+  target: Player
