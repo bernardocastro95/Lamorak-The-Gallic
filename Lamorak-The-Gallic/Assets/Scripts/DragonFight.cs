@@ -32,7 +32,7 @@ public class DragonFight : MonoBehaviour
         distance = Vector3.Distance(dragon.transform.position, transform.position);
         animator.SetFloat("speed", Mathf.Abs(speed));
         dragon.animator.SetFloat("distance", Mathf.Abs(distance));
-        animator.SetBool("enemyAttack", false);
+        //animator.SetBool("enemyAttack", false);
 
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
@@ -111,21 +111,12 @@ public class DragonFight : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("FireBall")) 
+        if(collision.tag == "FireBall")
         {
-            enemyAttack = true;
             animator.SetBool("enemyAttack", true);
-        }
-        else
-        {
-            enemyAttack = false;
-            animator.SetBool("enemyAttack", false);
-        }
+        }        
     }
-
-
-
 
 }
