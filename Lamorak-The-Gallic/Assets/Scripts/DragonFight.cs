@@ -17,7 +17,8 @@ public class DragonFight : MonoBehaviour
     public bool isClicked = false;
     [SerializeField]
     private FinalDuelUI fui;
-    public bool enemyAttack;
+    public bool injured = false, ok = true;
+    public float timer;
     // Start is called before the first frame update
     public void Start()
     {
@@ -32,15 +33,21 @@ public class DragonFight : MonoBehaviour
         distance = Vector3.Distance(dragon.transform.position, transform.position);
         animator.SetFloat("speed", Mathf.Abs(speed));
         dragon.animator.SetFloat("distance", Mathf.Abs(distance));
-        //animator.SetBool("enemyAttack", false);
 
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
+        timer += Time.deltaTime;
 
 
         Movement();
         Attack();
+
+        if(timer > 7 && injured == true)
+        {
+            Heal();
+        }
         
+
 
 
         if (gm.paused == true || gm.isGameOver == true)
@@ -57,6 +64,7 @@ public class DragonFight : MonoBehaviour
     void FixedUpdate()
     {
         r2d.velocity = new Vector2(speed * inputX, speed * inputY);
+
     }
 
 
@@ -90,7 +98,6 @@ public class DragonFight : MonoBehaviour
         }
 
     }
-
     void Attack()
     {
 
@@ -111,12 +118,28 @@ public class DragonFight : MonoBehaviour
         }
     }
 
+    void Heal()
+    {
+        timer = 0;
+        ok = true;
+        injured = false;
+        animator.SetBool("injured", false);
+        animator.SetBool("ok", true);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "FireBall")
         {
-            animator.SetBool("enemyAttack", true);
-        }        
+            ok = false;
+            injured = true;
+            animator.SetBool("injured", true);
+            animator.SetBool("ok", false);
+
+        }
+        
     }
+
+
 
 }
