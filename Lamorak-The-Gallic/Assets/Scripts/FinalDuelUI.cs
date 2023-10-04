@@ -57,7 +57,7 @@ public class FinalDuelUI : MonoBehaviour
 
             Time.timeScale = 0;
             gm.gameIsOver();
-            middleText.text = "                        GAME OVER";
+            middleText.text = "                 GAME OVER";
             restartButton.gameObject.SetActive(true);
             restartButton.GetComponentInChildren<Text>().text = "Restart";
             mainMenuButton.gameObject.SetActive(true);

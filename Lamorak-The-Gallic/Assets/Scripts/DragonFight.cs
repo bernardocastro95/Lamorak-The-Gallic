@@ -38,9 +38,9 @@ public class DragonFight : MonoBehaviour
         inputY = Input.GetAxisRaw("Vertical");
         timer += Time.deltaTime;
 
-
-        Movement();
         Attack();
+        Movement();
+        
 
         if(timer > 7 && injured == true)
         {
@@ -101,7 +101,7 @@ public class DragonFight : MonoBehaviour
     void Attack()
     {
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && distance < 4)
         {
             isClicked = true;
             animator.SetBool("clicked", true);
@@ -135,6 +135,7 @@ public class DragonFight : MonoBehaviour
             injured = true;
             animator.SetBool("injured", true);
             animator.SetBool("ok", false);
+            fui.playerLifeManager();
 
         }
         
